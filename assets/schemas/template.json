@@ -1,0 +1,301 @@
+{
+  "definitions": {
+    "template-or-list": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/template"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/template"
+          }
+        }
+      ]
+    },
+    "template": {
+      "type": "object",
+      "required": [
+        "title",
+        "content"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "$ref": "#/definitions/rhs"
+        },
+        "tags": {
+          "type": "string"
+        },
+        "previousTags": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "isRoot": {
+          "type": "boolean"
+        },
+        "weight": {
+          "type": "integer"
+        },
+        "replies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/template"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "symbol-or-list": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/symbol"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/symbol"
+          }
+        }
+      ]
+    },
+    "symbol": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "transferable": {
+          "type": "boolean"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/rhs"
+          }
+        }
+      }
+    },
+    "rhs": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "sym"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "name"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "sym"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "func"
+              },
+              "args": {
+                "$ref": "#/definitions/rhs"
+              },
+              "evaltext": {
+                "type": "string"
+              },
+              "evaltree": {
+                "$ref": "#/definitions/rhs"
+              },
+              "value": {
+                "$ref": "#/definitions/rhs"
+              },
+              "funcname": {
+                "enum": [
+                  "eval",
+                  "quote",
+                  "uc",
+                  "lc",
+                  "cap",
+                  "plural",
+                  "singular",
+                  "a",
+                  "nlp_plural",
+                  "topic",
+                  "person",
+                  "place",
+                  "past",
+                  "present",
+                  "future",
+                  "infinitive",
+                  "gerund",
+                  "adjective",
+                  "negative",
+                  "positive"
+                ]
+              }
+            },
+            "required": [
+              "type",
+              "funcname",
+              "args"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "cond"
+              },
+              "test": {
+                "$ref": "#/definitions/rhs"
+              },
+              "t": {
+                "$ref": "#/definitions/rhs"
+              },
+              "f": {
+                "$ref": "#/definitions/rhs"
+              }
+            },
+            "required": [
+              "type",
+              "test",
+              "t",
+              "f"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "lookup"
+              },
+              "varname": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "varname"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "assign"
+              },
+              "value": {
+                "$ref": "#/definitions/rhs"
+              },
+              "varname": {
+                "type": "string"
+              },
+              "local": {
+                "$ref": "#/definitions/rhs"
+              }
+            },
+            "required": [
+              "type",
+              "varname",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "alt"
+              },
+              "opts": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/rhs"
+                }
+              }
+            },
+            "required": [
+              "type",
+              "opts"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "rep"
+              },
+              "unit": {
+                "$ref": "#/definitions/rhs"
+              },
+              "min": {
+                "type": "integer"
+              },
+              "max": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "type",
+              "unit",
+              "min",
+              "max"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "$ref": "#/definitions/template-or-list",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "id": "http://localhost:1337/schemas/template.json"
+}

@@ -1,0 +1,42 @@
+[
+    {
+      name: "clerk",
+      password: "clerk",
+      displayName: "Dealer's Clerk",
+      avatar: "death-note",
+      createsPublicTemplates: true,
+      noMailUnlessFollowed: true,
+      followed: ["dealer","buyer"],
+      newSignUp: false
+    },
+    {
+      name: "dealer",
+      password: "dealer",
+      displayName: "Book Dealer",
+      avatar: "quill-ink",
+      createsPublicTemplates: true,
+      noMailUnlessFollowed: true,
+      followed: ["clerk"],
+      newSignUp: false
+    },
+    {
+      name: "buyer",
+      password: "buyer",
+      displayName: "Philosophical Reader",
+      avatar: "take-my-money",
+      createsPublicTemplates: true,
+      noMailUnlessFollowed: true,
+      followed: ["dealer"],
+      newSignUp: false
+    },
+    {
+      name: "executioner",
+      password: "executioner",
+      displayName: "Public Executioner",
+      avatar: "executioner",
+      createsPublicTemplates: true,
+      noMailUnlessFollowed: true,
+      followed: ["dealer"],
+      newSignUp: false
+    },
+]

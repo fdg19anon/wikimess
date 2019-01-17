@@ -1,0 +1,188 @@
+/* Colors, plain theme */
+.wikimess-page.plain {
+    background-color: white;
+}
+
+.wikimess.plain {
+    background-color: #f8f8f8;
+    color: black;
+}
+
+.wikimess.plain svg {
+    fill: black;
+}
+
+.wikimess.plain .whobar .search .query .button svg,
+.wikimess.plain .navbar svg.navicon {
+    fill: white;
+}
+
+.wikimess.plain .banner,
+.wikimess.plain .subnavbar {
+    background-color: white;
+}
+
+.wikimess.plain .navlabelspace,
+.wikimess.plain .navbar {
+    background-color: black;
+}
+
+.wikimess.plain .subnavbar .button .iconlabel {
+    background-color: rgba(255,255,255,.8);
+    color: black;
+}
+
+.wikimess.plain .sharepane {
+    background-color: white;
+}
+
+.wikimess.plain .navbar .navlabel {
+    background-color: rgba(0,0,0,.5);
+    color: white;
+}
+
+.wikimess.plain .grammarbar .rule {
+    border-color: #888;
+    background-color: #eee;
+    border-radius: 4px;
+    box-shadow: 2px -2px 2px 0px #444;
+}
+
+.wikimess.plain .symbolmenu,
+.wikimess.plain .grammarbar .rule .rulemenu {
+    background-color: white;
+}
+
+.wikimess.plain .compose .suggestsectiontitle {
+    background-color: #ddd;
+    border-color: #444;
+}
+
+.wikimess.plain .compose .composesectiontitle {
+    background-color: #bbb;
+    border-color: #666;
+}
+
+.wikimess.plain .suggest {
+    background-color: #eee;
+    border-color: #444;
+}
+
+.wikimess.plain .compose .messagecompose,
+.wikimess.plain .grammarbar .rule .rhs .content {
+    background-color: #ccc;
+    border-color: #666;
+}
+
+.wikimess.plain .suggest .lhslink {
+    background-color: #ddd;
+}
+
+.wikimess.plain .grammarbar .rule .rhs .content {
+    border-top-style: solid;
+    border-left-style: solid;
+    border-radius: 4px;
+    border-width: 1px;
+    padding: 2px;
+}
+
+.wikimess.plain .templates .template .title,
+.wikimess.plain .playerlink,
+.wikimess.plain .lhslink {
+    color: blue;
+}
+
+.wikimess.plain .grammarbar,
+.wikimess.plain .menubar {
+    color: black;
+}
+
+.wikimess.plain .menubar a,
+.wikimess.plain .menubar label {
+    color: #888;
+    border-color: #888;
+}
+
+.wikimess.plain .titlebar {
+    color: black;
+}
+
+.wikimess.plain .inputbar {
+    color: black;
+}
+
+.wikimess.plain .inputbar input[type=text],
+.wikimess.plain .inputbar input[type=password] {
+    border-color: #ccc;
+    background-color: #ddd;
+    color: black;
+}
+
+.wikimess.plain .menubar li {
+    color: black;
+}
+
+.wikimess.plain .menubar .menubutton {
+    color: black;
+    background-color: #ccc;
+}
+
+.wikimess .menubar .themegroup label.plain {
+    color: white;
+}
+
+.wikimess.plain .symbolmenu .option:nth-child(odd),
+.wikimess.plain .revisions .revision:nth-child(odd),
+.wikimess.plain .templates .template:nth-child(odd),
+.wikimess.plain .followsection .follow:nth-child(odd),
+.wikimess.plain .mailbox .contents .message:nth-child(odd) {
+    background: #eee;
+}
+
+.wikimess.plain .messageheader .privrow .privtab {
+    background-color: #444;
+    color: #bbb;
+}
+
+.wikimess.plain .messageheader .privrow .privtab.active {
+    background-color: rgba(0,0,0,0);
+    opacity: 1;
+    color: black;
+}
+
+.wikimess.plain .messageheader .input .results {
+    background-color: white;
+}
+
+.wikimess.plain .search .query input {
+    color: white;
+}
+
+.wikimess.plain .menubar .listitem,
+.wikimess.plain .detailbar .titlebar,
+.wikimess.plain .compose .messageheader {
+    background-color: #eee;
+}
+
+.wikimess.plain .configmenu .option.checked {
+    background-color: #ccc;
+}
+
+/* Syntax coloring */
+.wikimess.plain .syntax-brace { color: #044; }
+.wikimess.plain .syntax-var { color: #503; }
+.wikimess.plain .syntax-target { color: #060; }
+.wikimess.plain .syntax-alt { background-color: #aaa; }
+.wikimess.plain .syntax-alt-char { background-color: #bbb; color: #006; }
+.wikimess.plain .syntax-cond-keyword { color: #410; }
+.wikimess.plain .syntax-func-name { color: #305; }
+
+/* Meters */
+.wikimess .meter .icon.empty svg {
+    fill: black;
+    opacity: .2;
+}
+
+.wikimess .meter .icon.full svg {
+    fill: green;
+}

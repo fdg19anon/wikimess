@@ -1,0 +1,72 @@
+{
+  "definitions": {
+    "player-or-list": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/player"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/player"
+          }
+        }
+      ]
+    },
+    "player": {
+      "type": "object",
+      "required": [
+        "name",
+        "password"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "admin": {
+          "type": "boolean"
+        },
+        "newSignUp": {
+          "type": "boolean"
+        },
+        "publicBio": {
+          "type": "string"
+        },
+        "privateBio": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "noMailUnlessFollowed": {
+          "type": "boolean"
+        },
+        "createsPublicTemplates": {
+          "type": "boolean"
+        },
+        "searchable": {
+          "type": "boolean"
+        },
+        "twitterScreenName": {
+          "type": "string"
+        },
+        "twitterAccessToken": {
+          "type": "string"
+        },
+        "twitterAccessTokenSecret": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "$ref": "#/definitions/player-or-list",
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "id": "http://localhost:1337/schemas/player.json"
+}

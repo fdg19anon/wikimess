@@ -1,0 +1,1950 @@
+html, body {
+    height: 100%;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font: normal 16px/20px 'Helvetica Neue', Helvetica, Arial, freesans, sans-serif;
+    overflow: hidden;
+
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    -o-user-select: none;
+    user-select: none;
+}
+
+textarea,
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.wikimess-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.pushed {
+    display: none  !important;
+    height: 0  !important;
+    width: 0  !important;
+}
+
+.wikimess {
+    position: relative;
+}
+
+.wikimess .navbar {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.wikimess .navbar .navtab {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.wikimess .navbar .navtab .messagecount {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 1vh;
+    background: rgba(255,0,0,.5);
+    border-radius: 16px;
+    border-style: solid;
+    border-width: 1px;
+    margin: 1px;
+    padding: 4px;
+
+    color: white;
+    border-color: black;
+}
+
+.wikimess .navbar .navtab .navicon {
+    opacity: .6;
+    cursor: pointer;
+}
+
+.wikimess .navbar .navlabel {
+    display: inline;
+    font-size: 1vh;
+    line-height: 1vh;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    
+    opacity: .8;
+    cursor: pointer;
+    font-style: italic;
+    text-align: center;
+}
+
+.wikimess .navbar .navtab.active .navicon {
+    opacity: 1;
+}
+
+.wikimess .navbar .active .navlabel {
+    opacity: 1;
+    font-style: normal;
+}
+
+.wikimess .banner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    cursor: pointer;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.wikimess .navbar .banner.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.wikimess .suggest .button {
+    width: 1.5em;
+    height: 1.5em;
+    cursor: pointer;
+    font-size: x-large;
+}
+
+.wikimess .grammarbar .button {
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+    font-size: x-large;
+}
+
+.wikimess .message .buttons .button,
+.wikimess .grammarbar .rhs .button {
+    float: right;
+}
+
+.wikimess .whobar {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.wikimess .popular .header,
+.wikimess .mailbox .mailboxname {
+    text-align: center;
+}
+
+.wikimess .popular .header,
+.wikimess .mailbox .mailboxname,
+.wikimess .searchtitle,
+.wikimess .grammartitle,
+.wikimess .whobar .followsection .title {
+    font-weight: bold;
+    font-size: large;
+}
+
+.wikimess .whobar .search .followsection {
+    border-bottom-style: solid;
+    border-width: 1px;
+
+    margin-left: 1px;
+    border-left-style: solid;
+    border-right-style: solid;
+    padding: 2px;
+}
+
+.wikimess .whobar .followsection {
+    margin-bottom: 12px;
+}
+
+.wikimess .search .query {
+    display: flex;
+    width: 100%;
+    height: 32px;
+    background: black;
+    flex-direction: row;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: #888;
+}
+
+.wikimess .search .query .button {
+    height: 32px;
+    width: 32px;
+}
+
+.wikimess .search .query input {
+    background: black;
+    flex-grow: 1;
+    border-style: none;
+}
+
+.wikimess .symbolsearch {
+    min-height: 33%;
+    overflow: hidden;
+    border-bottom-style: solid;
+    border-width: 1px;
+
+    margin-left: 1px;
+    border-left-style: solid;
+    border-right-style: solid;
+    padding: 2px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.wikimess .symbolsearch .results {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.wikimess .endresults {
+    width: 100%;
+    text-align: center;
+    font-style: italic;
+}
+
+.wikimess .endresults span {
+    cursor: pointer;
+    padding-bottom: 4px;
+}
+
+.wikimess .more {
+    text-decoration: underline;
+}
+
+.wikimess .follow,
+.wikimess .grammarbar .rule {
+    clear: both;
+    float: left;
+    position: relative;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.wikimess .follow {
+    width: 100%;
+    cursor: pointer;
+    font-size: large;
+}
+
+.wikimess .grammarbar .rule {
+    border-style: solid;
+    border-width: 1px;
+    margin: 6px 2px 2px 2px;
+    width: 98%;
+}
+
+.wikimess .grammarbar .rule .menubuttons {
+    position: relative;
+    float: right;
+}
+
+.wikimess .grammarbar .rule .menubuttons .menubutton {
+    padding-left: 4px;
+}
+
+.wikimess .symbolmenu,
+.wikimess .grammarbar .rule .rulemenu {
+    position: absolute;
+    z-index: 20;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px 0px gray;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.wikimess .grammarbar .rule .rulemenu {
+    right: 0;
+}
+
+.wikimess .symbolmenu .option,
+.wikimess .grammarbar .rule .rulemenu .option {
+    white-space: nowrap;
+    font-weight: normal;
+    font-style: normal;
+    font-size: large;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+}
+
+.wikimess .grammarbar .rule .rulemenu .option {
+    text-align: right;
+    text-decoration: underline;
+}
+
+.wikimess .symbolmenu .option {
+    text-align: center;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+.wikimess .symbolmenu .option:nth-child(1),
+.wikimess .grammarbar .rule .rulemenu .option:nth-child(1) {
+    padding-top: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.wikimess .symbolmenu .option:nth-last-child(1),
+.wikimess .grammarbar .rule .rulemenu .option:nth-last-child(1) {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.wikimess-modalexit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.wikimess .grammarbar .rule .rhs {
+    display: flex;
+    justify-content: space-between;
+    min-height: 1.5em;
+    overflow-wrap: break-word;
+}
+
+.wikimess .grammarbar .rule .rhs .placeholder {
+    font-style: italic;
+}
+
+.wikimess .grammarbar .rule .rhs .content {
+    overflow: auto;
+    flex-grow: 1;
+    margin-right: 4px;
+}
+
+.wikimess .grammarbar .rule .rhs .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.wikimess .compose .messagecompose p {
+    display: inline;
+}
+
+.wikimess .grammarbar .rule .summary p,
+.wikimess .grammarbar .rule .rhs p {
+    display: inline;
+    margin: 0;
+}
+
+.wikimess .mailbox .message.selected,
+.wikimess .grammarbar .rule.selected {
+    -webkit-animation: 500ms linear 0s 1 normal pulse_rule;
+    -moz-animation: 500ms linear 0s 1 normal pulse_rule;
+    -o-animation: 500ms linear 0s 1 normal pulse_rule;
+    animation: 500ms linear 0s 1 normal pulse_rule;
+}
+
+@-webkit-keyframes pulse_rule { from { background-color:gray; } }
+   @-moz-keyframes pulse_rule { from { background-color:gray; } }
+     @-o-keyframes pulse_rule { from { background-color:gray; } }
+        @keyframes pulse_rule { from { background-color:gray; } }
+
+.wikimess .playerlink,
+.wikimess .lhslink {
+    cursor: pointer;
+}
+
+.wikimess .suggest .lhslink {
+    padding: 4px;
+    margin: 1px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+}
+
+.wikimess .var {
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.wikimess .playerlink .name,
+.wikimess .lhslink .name {
+    text-decoration: underline;
+}
+
+.wikimess .suggest .lhslink .name {
+    text-decoration: none;
+}
+
+.wikimess .sharepanecontainer {
+    position: relative;
+}
+
+.wikimess .sharepanebutton {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.wikimess .sharepane {
+    position: absolute;
+    top: -7vh;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+}
+.wikimess .subnavbar .sharepane span.iconlabel {
+    display: none;
+}
+
+.wikimess .sharepane,
+.wikimess .infopane {
+    border-style: solid;
+    border-width: 1px;
+    z-index: 5;
+    padding: 2px 4px 2px 2px;
+    overflow-wrap: break-word;
+}
+
+.wikimess .sharepane {
+    z-index: 10;
+}
+
+.wikimess .infopane {
+    z-index: 5;
+}
+
+.wikimess .infopane .title {
+    font-weight: bold;
+    font-size: large;
+    font-style: italic;
+}
+
+.wikimess .infopane .content {
+    clear: both;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    padding: 1px;
+}
+
+.wikimess .infopane .rightcontrols {
+    font-size: x-large;
+    float: right;
+}
+
+.wikimess .infopane .leftcontrols {
+    font-size: x-large;
+    float: left;
+}
+
+.wikimess .infopane .leftcontrols .hint,
+.wikimess .infopane .rightcontrols .hint {
+    font-size: 1vh;
+    cursor: pointer;
+    clear: both;
+}
+
+.wikimess .leftcontrols .button,
+.wikimess .rightcontrols .button {
+    width: 1em;
+    height: 1em;
+    padding: 1px;
+    cursor: pointer;
+}
+
+.wikimess .leftcontrols .button {
+    float: left;
+}
+
+.wikimess .rightcontrols .button {
+    float: right;
+}
+
+.wikimess .closebutton {
+    float: right;
+    font-size: 3vh;
+    width: 1em;
+    height: 1em;
+    padding: 1px;
+    cursor: pointer;
+}
+
+.wikimess .helpicon {
+    font-size: 3vh;
+    width: 1em;
+    height: 1em;
+    padding: 1px;
+    display: inline-block;
+}
+
+.wikimess .grammarbar .rule .lhs {
+    font-weight: bold;
+    font-style: italic;
+    font-size: large;
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+    min-height: 1.5em;
+}
+
+.wikimess .grammarbar .rule .button {
+    cursor: pointer;
+}
+
+.wikimess .grammarbar .rule .summary {
+    font-style: italic;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.wikimess .grammarbar .rule .protected {
+    font-size: 1vh;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.wikimess .grammarbar .rule .links {
+    font-style: italic;
+    font-size: small;
+    margin: 0px 12px 2px 8px;
+    padding: 1px 2px 1px 2px;
+}
+
+.wikimess .grammarbar .rule .lhs .owner {
+    font-size: small;
+    font-style: italic;
+    font-weight: normal;
+    padding-right: 4px;
+}
+
+.wikimess .message .buttons .button {
+    padding: 2px;
+    cursor: pointer;
+    width: 3vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.wikimess .follow .followcontrol {
+    padding: 2px;
+    cursor: pointer;
+    width: 2vh;
+    height: 2vh;
+}
+
+.wikimess .other {
+    display: flex;
+}
+
+.wikimess .follow .followcontrol {
+    float: right;
+}
+
+.wikimess .displayname {
+    margin-left: 4px;
+    font-size: medium;
+    font-style: italic;
+}
+
+.wikimess .field .displayname {
+    font-size: 1.5vh;
+}
+
+.wikimess .follow .playerlink {
+    padding: 4px;
+    word-break: break-all;
+}
+
+.wikimess .topbar {
+    width: 100vw;
+    min-height: 64px;
+    display: flex;
+    flex-direction: column;
+}
+
+.wikimess .menubar a,
+.wikimess .menubar label {
+    text-decoration: none;
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
+}
+
+.wikimess .inputbar {
+    line-height: 32px;
+}
+
+.wikimess .titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wikimess .detailbar .titlebar {
+    border-bottom-style: solid;
+    border-width: 2px;
+    margin-bottom: 4px;
+}
+
+.wikimess .detailbar .welcome {
+    margin-bottom: 16px;
+}
+
+.wikimess .inputbar input[type=text],
+.wikimess .inputbar input[type=password],
+.wikimess .inputbar textarea {
+    display: block;
+
+    margin: 0;
+    font-size: 18px;
+
+    border-width: 1px;
+    border-style: solid;
+
+    width: 100%;
+}
+
+.wikimess .inputbar input[type=text],
+.wikimess .inputbar input[type=password] {
+    height: 40px;
+    line-height: 40px;
+}
+
+.wikimess .inputbar textarea {
+    resize: none;
+    margin: 4px;
+}
+
+.wikimess .menubar input {
+    width: 100%;
+}
+
+.wikimess .menubar .list {
+    display: flex;
+}
+
+.wikimess .menubar .listitem,
+.wikimess .menubar label {
+    padding: 8px;
+}
+
+.wikimess .menubar .menubutton {
+    width: 80vw;
+    padding: 16px;
+}
+
+.wikimess .menubar .listitem,
+.wikimess .menubar .menubutton {
+    border: 1px solid #888;
+    box-sizing: border-box;
+    text-align: center;
+
+    -webkit-box-shadow: 2px 2px 1px 1px rgba(0,0,0,0.3);
+    -moz-box-shadow: 2px 2px 1px 1px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 1px 1px rgba(0,0,0,0.3);
+}
+
+.wikimess .menubar .listitem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wikimess .menubar .listitem.noborder {
+    border-style: none;
+    background: none;
+
+    -webkit-box-shadow: 0 0 0 0;
+    -moz-box-shadow: 0 0 0 0;
+    box-shadow: 0 0 0 0;
+}
+
+.wikimess .menubar .listitem img {
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+    min-height: 64px;
+}
+
+.wikimess .menubar .menubutton {
+    cursor: default;
+}
+
+.wikimess .menubar .listitem,
+.wikimess .menubar .menubutton input {
+    cursor: pointer;
+}
+
+.wikimess .menubar .rubric {
+    text-align: center;
+}
+
+.wikimess .diffbar {
+    flex-grow: 1;
+    overflow-x: auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.wikimess .grammarbar,
+.wikimess .revisionsbar,
+.wikimess .detailbar {
+    flex-grow: 1;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.wikimess .revisionsbar .revision {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wikimess .revisionsbar .revision .diff {
+    text-align: right;
+}
+
+.wikimess .detailbar .biofact {
+    padding-top: 4px;
+}
+
+.wikimess .detailbar .biofactlabel,
+.wikimess .detailbar .biotitle {
+    font-weight: bold;
+}
+
+.wikimess .detailbar .biofactvalue {
+    font-style: italic;
+}
+
+.wikimess .detailbar .bio {
+    border-style: solid;
+    border-width: 1px;
+    margin: 2px;
+    padding: 2px;
+    font-style: italic;
+    overflow-wrap: break-word;
+}
+
+.wikimess .detailbar .filler {
+    flex-grow: 1;
+}
+
+.wikimess .diffbar .added {
+    background-color: lightgreen;
+}
+
+.wikimess .diffbar .removed {
+    background-color: pink;
+}
+
+.wikimess .emptygrammar svg,
+.wikimess .menubutton .button svg {
+    width: 1em;
+    height: 1em;
+}
+
+.wikimess .menubar label {
+    display: block;
+    margin: 8px;
+    text-align: center;
+}
+
+.wikimess .menubar input[type="radio"] {
+    display: none;
+}
+
+.wikimess .tiptitle,
+.wikimess .bodysectiontitle,
+.wikimess .messageheader {
+    font-size: 1.5vh;
+    line-height: 2vh;
+    position: relative;
+}
+
+.wikimess .messageheader .row textarea {
+    font-size: 1.5vh;
+}
+
+.wikimess .messageheader .tagrow textarea {
+    font-size: 1vh;
+}
+
+.wikimess .messageheader {
+    border-top-style: solid;
+    border-width: 1px;
+    padding-bottom: 1px;
+}
+
+.wikimess .compose .messageheader .row {
+    font-size: 1.5vh;
+}
+
+.wikimess .messageheader .privrow {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.wikimess .compose .messageheader .row .label,
+.wikimess .compose .messageheader .tagrow .label {
+    display: none;
+}
+
+.wikimess .compose .messageheader .row .input,
+.wikimess .compose .messageheader .tagrow .input {
+    padding-top: 1px;
+    padding-left: 1px;
+    padding-right: 8px;  /* ugh, weird */
+}
+
+.wikimess .messageheader .tagrow {
+    display: flex;
+    flex-direction: row;
+}
+
+.wikimess .messageheader .tagcol {
+    flex-grow: 1;
+}
+
+.wikimess .messageheader .label {
+    float: left;
+    text-align: right;
+    vertical-align: top;
+    padding-right: 4px;
+    font-weight: bold;
+    overflow-wrap: break-word;
+}
+
+.mailbox,
+.wikimess .compose {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.wikimess .mailbox.pinned {
+    flex-grow: 0;
+}
+
+.wikimess .messageheader .input {
+    display: block;
+    overflow: hidden;
+}
+
+.wikimess .messageheader .input .results {
+    margin-bottom: 4px;
+    border-style: none solid solid solid;
+    border-width: 1px;
+    padding: 2px;
+}
+
+.wikimess .messageheader .input .results .result {
+    display: block;
+}
+
+.wikimess .messageheader .field {
+    display: table-cell;
+    overflow-wrap: break-word;
+}
+
+.wikimess .messageheader .threadnav {
+    float: right;
+    font-size: 1vh;
+    padding-right: 4px;
+}
+
+.wikimess .messageheader .threadnav {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.wikimess .diffbar {
+    -webkit-user-select: text; /* Chrome/Safari */        
+    -moz-user-select: text; /* Firefox */
+    -ms-user-select: text; /* IE10+ */
+    -o-user-select: text;
+    user-select: text;
+}
+
+.mailbox {
+    flex-grow: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: break-word;
+}
+
+.wikimess .detailbar .mailbox,
+.wikimess .mailbox.pinned {
+    overflow-y: hidden;
+}
+
+.wikimess .messageborder {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: break-word;
+    position: relative;
+}
+
+.wikimess .popular .templates,
+.wikimess .mailbox .contents {
+    border-top-style: solid;
+    border-width: 1px;
+    margin: 2px;
+}
+
+.wikimess .pinned .contents {
+    border-style: solid;
+}
+
+.wikimess .tiptitle,
+.wikimess .bodysectiontitle {
+    text-align: center;
+    border-style: none none dashed none;
+    border-width: 1px;
+    border-radius: 2vh 2vh 0 0;
+    min-height: 1em;
+}
+
+.wikimess .compose .composesectiontitle,
+.wikimess .compose .suggestsectiontitle {
+    border-style: solid solid dashed solid;
+    border-width: 1px;
+}
+
+.wikimess .sectiontitle {
+    font-style: italic;
+    padding: 2px;
+}
+
+.wikimess .composesectiontitle .button {
+    float: right;
+    cursor: pointer;
+}
+
+.wikimess .composesectiontitle .button svg {
+    width: 1em;
+    height: 1em;
+}
+
+.wikimess .compose .messagecompose {
+    height: 15vh;
+    min-height: 15vh;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+    border-style: none solid none solid;
+    border-width: 1px;
+    padding: 1px;
+}
+
+.wikimess .compose .placeholder {
+    font-style: italic;
+}
+
+.wikimess .compose .suggest {
+    height: 10vh;
+    min-height: 10vh;
+    font-size: 2vh;
+    line-height: 2vh;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    overflow: hidden;
+
+    padding: 2px;
+
+    border-style: none solid solid solid;
+    border-width: 1px;
+}
+
+.wikimess .stack {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    z-index: 6;
+    position: relative;
+    padding: 4px 20px;
+}
+
+.wikimess .stack .card,
+.wikimess .stack .inertcard,
+.wikimess .stack .helpcard {
+    max-height: 160vw;
+}
+
+.wikimess .stack .card {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2vh;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.wikimess .stack .inertcard,
+.wikimess .stack .helpcard {
+    position: absolute;
+
+    /* the following width and height are just defaults, they will be reset by the JavaScript */
+    width: 90%;
+    height: 90%;
+    
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 2vh;
+    border-width: 2px;
+    border-style: solid;
+
+    justify-content: center;
+}
+
+.wikimess .compose .stack .bodysectiontitle {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fefcea+0,f1da36+100;Gold+3D */
+background: #fefcea; /* Old browsers */
+background: -moz-linear-gradient(-45deg, #fefcea 0%, #f1da36 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, #fefcea 0%,#f1da36 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, #fefcea 0%,#f1da36 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#f1da36',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.wikimess .composecard {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9f6e3+0,c9c190+60,b7ad70+100 */
+background: rgb(249,246,227); /* Old browsers */
+background: -moz-linear-gradient(-45deg, rgba(249,246,227,1) 0%, rgba(201,193,144,1) 60%, rgba(183,173,112,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, rgba(249,246,227,1) 0%,rgba(201,193,144,1) 60%,rgba(183,173,112,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, rgba(249,246,227,1) 0%,rgba(201,193,144,1) 60%,rgba(183,173,112,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f6e3', endColorstr='#b7ad70',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    border-color: #000;
+    -webkit-box-shadow: 2px 2px 1px 1px rgba(0,0,0,0.3);
+    -moz-box-shadow: 2px 2px 1px 1px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 1px 1px rgba(0,0,0,0.3);
+}
+
+.wikimess .broadcastcard {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#feffff+0,ddf1f9+35,a0d8ef+100;Blue+3D+%2318 */
+background: #feffff; /* Old browsers */
+background: -moz-linear-gradient(-45deg, #feffff 0%, #ddf1f9 35%, #a0d8ef 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, #feffff 0%,#ddf1f9 35%,#a0d8ef 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, #feffff 0%,#ddf1f9 35%,#a0d8ef 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#a0d8ef',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    border-color: #000;
+    -webkit-box-shadow: 2px 2px 1px 1px rgba(0,0,0,0.3);
+    -moz-box-shadow: 2px 2px 1px 1px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 1px 1px rgba(0,0,0,0.3);
+}
+
+.wikimess .messagecard {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#feffff+0,e0def9+35,ae9be8+100 */
+background: #feffff; /* Old browsers */
+background: -moz-linear-gradient(-45deg, #feffff 0%, #e0def9 35%, #ae9be8 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, #feffff 0%,#e0def9 35%,#ae9be8 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, #feffff 0%,#e0def9 35%,#ae9be8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#ae9be8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.wikimess .sentcard {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fddeb5+0,f9c785+100 */
+background: #fddeb5; /* Old browsers */
+background: -moz-linear-gradient(-45deg, #fddeb5 0%, #f9c785 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, #fddeb5 0%,#f9c785 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, #fddeb5 0%,#f9c785 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fddeb5', endColorstr='#f9c785',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */    border-color: #000;
+    -webkit-box-shadow: 2px 2px 1px 1px rgba(0,0,0,0.3);
+    -moz-box-shadow: 2px 2px 1px 1px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 1px 1px rgba(0,0,0,0.3);
+}
+
+.wikimess .helpcard {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fed6fd+0,f8bff9+100 */
+background: #fed6fd; /* Old browsers */
+background: -moz-linear-gradient(-45deg, #fed6fd 0%, #f8bff9 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, #fed6fd 0%,#f8bff9 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, #fed6fd 0%,#f8bff9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fed6fd', endColorstr='#f8bff9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    border-color: #800;
+    -webkit-box-shadow: 2px 2px 1px 1px rgba(64,0,0,0.3);
+    -moz-box-shadow: 2px 2px 1px 1px rgba(64,0,0,0.3);
+    box-shadow: 2px 2px 1px 1px rgba(64,0,0,0.3);
+}
+
+.wikimess .stack .tiptitle {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fce5fb+0,f25bf7+100 */
+background: #fce5fb; /* Old browsers */
+background: -moz-linear-gradient(-45deg, #fce5fb 0%, #f25bf7 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, #fce5fb 0%,#f25bf7 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, #fce5fb 0%,#f25bf7 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fce5fb', endColorstr='#f25bf7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.wikimess .stack .composecard.dragging,
+.wikimess .stack .inertcard.dragging,
+.wikimess .stack .broadcastcard.dragging,
+.wikimess .stack .messagecard.dragging,
+.wikimess .stack .sentcard.dragging {
+    -webkit-box-shadow: 8px 8px 4px 4px rgba(0,0,0,0.3);
+    -moz-box-shadow: 8px 8px 4px 4px rgba(0,0,0,0.3);
+    box-shadow: 8px 8px 4px 4px rgba(0,0,0,0.3);
+}
+
+.wikimess .stack .helpcard.dragging,
+.wikimess .stack .helpcard.throwing {
+    -webkit-box-shadow: 8px 8px 4px 4px rgba(64,0,0,0.3);
+    -moz-box-shadow: 8px 8px 4px 4px rgba(64,0,0,0.3);
+    box-shadow: 8px 8px 4px 4px rgba(64,0,0,0.3);
+}
+
+.wikimess .stack .inertcard:not(:last-child),
+.wikimess .stack .helpcard:not(:last-child),
+.wikimess .stack .card:not(:last-child) {
+    pointer-events: none;
+}
+						      
+.wikimess .stack .jiggle:last-child:not(.dragging):not(.throwing) {
+    animation: jiggle 5s ease 0s infinite;
+    -moz-animation: jiggle 5s ease 0s infinite;
+    -webkit-animation: jiggle 5s ease 0s infinite;
+}
+
+@-webkit-keyframes jiggle {
+    0% { transform: rotate(0deg); }
+    95% { transform: rotate(0deg); }
+    97% { transform: rotate(1deg); }
+    99% { transform: rotate(-0.5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@-moz-keyframes jiggle {
+    0% { transform: rotate(0deg); }
+    95% { transform: rotate(0deg); }
+    97% { transform: rotate(1deg); }
+    99% { transform: rotate(-0.5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes jiggle {
+    0% { transform: rotate(0deg); }
+    95% { transform: rotate(0deg); }
+    97% { transform: rotate(1deg); }
+    99% { transform: rotate(-0.5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.wikimess .arrowcontainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 30;
+    pointer-events: none;
+}
+
+.wikimess .arrowcontainer .arrowstripe {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.wikimess .arrowcontainer .arrowstripe .hand {
+    margin-top: 30vh;
+    width: 20vh;
+    height: 20vh;
+
+    animation: handwobble 10s linear 0s infinite;
+    -moz-animation: handwobble 10s linear 0s infinite;
+    -webkit-animation: handwobble 10s linear 0s infinite;
+
+    transform-origin: bottom center;
+}
+
+@-webkit-keyframes handwobble {
+    0% { transform:scale(1) rotate(0deg) translate(0,0); opacity: 0; }
+    20% { transform:scale(1.02) rotate(0deg) translate(0,0); opacity: 0; }
+    21% { transform:scale(1.02) rotate(0deg) translate(0,0); opacity: .06; }
+    22% { transform:scale(1) rotate(0deg) translate(0,0); opacity: .12; }
+    25% { transform:scale(1) rotate(-6deg) translate(-1.2vh,0); opacity: .3; }
+    28% { transform:scale(1) rotate(-12deg) translate(-2.4vh,0); opacity: .15; }
+    31% { transform:scale(1) rotate(-17deg) translate(-3.4vh,0); opacity: 0; }
+    32% { transform:scale(1.02) rotate(0deg) translate(0,0); opacity: 0; }
+    33% { transform:scale(1.02) rotate(0deg) translate(0,0); opacity: .04; }
+    34% { transform:scale(1) rotate(0deg) translate(0,0); opacity: .1; }
+    37% { transform:scale(1) rotate(6deg) translate(1.2vh,0); opacity: .2; }
+    40% { transform:scale(1) rotate(12deg) translate(2.4vh,0); opacity: .2; }
+    43% { transform:scale(1) rotate(17deg) translate(3.4vh,0); opacity: 0; }
+    100% { transform:scale(1) rotate(0deg) translate(0,0); opacity: 0; }
+}
+
+@-moz-keyframes handwobble {
+    0% { transform:scale(1) rotate(0deg) translate(0,0); opacity: 0; }
+    20% { transform:scale(1.02) rotate(0deg) translate(0,0); opacity: 0; }
+    21% { transform:scale(1.02) rotate(0deg) translate(0,0); opacity: .06; }
+    22% { transform:scale(1) rotate(0deg) translate(0,0); opacity: .12; }
+    25% { transform:scale(1) rotate(-6deg) translate(-1.2vh,0); opacity: .3; }
+    28% { transform:scale(1) rotate(-12deg) translate(-2.4vh,0); opacity: .15; }
+    31% { transform:scale(1) rotate(-17deg) translate(-3.4vh,0); opacity: 0; }
+    32% { transform:scale(1.02) rotate(0deg) translate(0,0); opacity: 0; }
+    33% { transform:scale(1.02) rotate(0deg) translate(0,0); opacity: .04; }
+    34% { transform:scale(1) rotate(0deg) translate(0,0); opacity: .1; }
+    37% { transform:scale(1) rotate(6deg) translate(1.2vh,0); opacity: .2; }
+    40% { transform:scale(1) rotate(12deg) translate(2.4vh,0); opacity: .2; }
+    43% { transform:scale(1) rotate(17deg) translate(3.4vh,0); opacity: 0; }
+    100% { transform:scale(1) rotate(0deg) translate(0,0); opacity: 0; }
+}
+
+@keyframes handwobble {
+    0% { transform:scale(1) rotate(0deg) translate(0,0); opacity: 0; }
+    20% { transform:scale(1.02) rotate(0deg) translate(0,0); opacity: 0; }
+    21% { transform:scale(1.02) rotate(0deg) translate(0,0); opacity: .06; }
+    22% { transform:scale(1) rotate(0deg) translate(0,0); opacity: .12; }
+    25% { transform:scale(1) rotate(-6deg) translate(-1.2vh,0); opacity: .3; }
+    28% { transform:scale(1) rotate(-12deg) translate(-2.4vh,0); opacity: .15; }
+    31% { transform:scale(1) rotate(-17deg) translate(-3.4vh,0); opacity: 0; }
+    32% { transform:scale(1.02) rotate(0deg) translate(0,0); opacity: 0; }
+    33% { transform:scale(1.02) rotate(0deg) translate(0,0); opacity: .04; }
+    34% { transform:scale(1) rotate(0deg) translate(0,0); opacity: .1; }
+    37% { transform:scale(1) rotate(6deg) translate(1.2vh,0); opacity: .2; }
+    40% { transform:scale(1) rotate(12deg) translate(2.4vh,0); opacity: .2; }
+    43% { transform:scale(1) rotate(17deg) translate(3.4vh,0); opacity: 0; }
+    100% { transform:scale(1) rotate(0deg) translate(0,0); opacity: 0; }
+}
+
+.wikimess .arrowcontainer .arrowstripe .hand #one-finger-contact-swipe-mark {
+    animation: swipepulse 10s linear 0s infinite;
+    -moz-animation: swipepulse 10s linear 0s infinite;
+    -webkit-animation: swipepulse 10s linear 0s infinite;
+}
+
+@-webkit-keyframes swipepulse {
+    0% { fill-opacity: 0; }
+    22% { fill-opacity: 0; fill: black; }
+    25% { fill-opacity: 1; fill: #400; }
+    31% { fill-opacity: 1; fill: black; }
+    32% { fill-opacity: 0; }
+    34% { fill-opacity: 0; }
+    37% { fill-opacity: 1; fill: #400; }
+    43% { fill-opacity: 1; fill: black; }
+    100% { fill-opacity: 0; }
+}
+
+@-moz-keyframes swipepulse {
+    0% { fill-opacity: 0; }
+    22% { fill-opacity: 0; fill: black; }
+    25% { fill-opacity: 1; fill: #400; }
+    31% { fill-opacity: 1; fill: black; }
+    32% { fill-opacity: 0; }
+    34% { fill-opacity: 0; }
+    37% { fill-opacity: 1; fill: #400; }
+    43% { fill-opacity: 1; fill: black; }
+    100% { fill-opacity: 0; }
+}
+
+@keyframes swipepulse {
+    0% { fill-opacity: 0; }
+    22% { fill-opacity: 0; fill: black; }
+    25% { fill-opacity: 1; fill: #400; }
+    31% { fill-opacity: 1; fill: black; }
+    32% { fill-opacity: 0; }
+    34% { fill-opacity: 0; }
+    37% { fill-opacity: 1; fill: #400; }
+    43% { fill-opacity: 1; fill: black; }
+    100% { fill-opacity: 0; }
+}
+
+.wikimess .arrowcontainer .arrowstripe .arrowplustext {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.wikimess .arrowcontainer .arrowstripe .arrowplustext .arrow {
+    width: 10vh;
+    height: 10vh;
+}
+
+.wikimess .arrowcontainer .arrowstripe .arrowplustext .text {
+    position: absolute;
+    font-size: 2vh;
+    top: 5vh;
+    margin-top: -1.5vh;
+    color: white;
+}
+
+.wikimess .arrowcontainer .leftarrowstripe .arrowplustext .text {
+    text-align: right;
+    right: .5vh;
+}
+
+.wikimess .arrowcontainer .rightarrowstripe .arrowplustext .text {
+    text-align: left;
+    left: .5vh;
+}
+
+.wikimess .arrowcontainer:not(.dragging) .leftarrowstripe .arrowplustext {
+    animation: slideleft 10s linear 0s infinite;
+    -moz-animation: slideleft 10s linear 0s infinite;
+    -webkit-animation: slideleft 10s linear 0s infinite;
+}
+
+@-webkit-keyframes slideleft {
+    0% { left: 12vh; opacity: 0; }
+    20% { left: 12vh; opacity: 0; }
+    25% { left: 10vh; opacity: .5; }
+    50% { left: 0vh; opacity: 0; }
+    100% { left: 0vh; opacity: 0; }
+}
+
+@-moz-keyframes slideleft {
+    0% { left: 12vh; opacity: 0; }
+    20% { left: 12vh; opacity: 0; }
+    25% { left: 10vh; opacity: .5; }
+    50% { left: 0vh; opacity: 0; }
+    100% { left: 0vh; opacity: 0; }
+}
+
+@keyframes slideleft {
+    0% { left: 12vh; opacity: 0; }
+    20% { left: 12vh; opacity: 0; }
+    25% { left: 10vh; opacity: .5; }
+    50% { left: 0vh; opacity: 0; }
+    100% { left: 0vh; opacity: 0; }
+}
+
+.wikimess .arrowcontainer:not(.dragging) .rightarrowstripe .arrowplustext {
+    animation: slideright 10s linear 0s infinite;
+    -moz-animation: slideright 10s linear 0s infinite;
+    -webkit-animation: slideright 10s linear 0s infinite;
+}
+
+@-webkit-keyframes slideright {
+    0% { right: 12vh; opacity: 0; }
+    20% { right: 12vh; opacity: 0; }
+    25% { right: 10vh; opacity: .5; }
+    50% { right: 0vh; opacity: 0; }
+    100% { right: 0vh; opacity: 0; }
+}
+
+@-moz-keyframes slideright {
+    0% { right: 12vh; opacity: 0; }
+    20% { right: 12vh; opacity: 0; }
+    25% { right: 10vh; opacity: .5; }
+    50% { right: 0vh; opacity: 0; }
+    100% { right: 0vh; opacity: 0; }
+}
+
+@keyframes slideright {
+    0% { right: 12vh; opacity: 0; }
+    20% { right: 12vh; opacity: 0; }
+    25% { right: 10vh; opacity: .5; }
+    50% { right: 0vh; opacity: 0; }
+    100% { right: 0vh; opacity: 0; }
+}
+
+.wikimess .arrowcontainer.throwing .arrowstripe .hand,
+.wikimess .arrowcontainer.dragging .arrowstripe .hand {
+    display: none;
+}
+
+.wikimess .arrowcontainer.throwing .arrowstripe,
+.wikimess .arrowcontainer.dragging:not(.leftdrag) .leftarrowstripe,
+.wikimess .arrowcontainer.dragging:not(.rightdrag) .rightarrowstripe {
+    opacity: 0;
+}
+
+.wikimess .inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.wikimess .cardcontrols {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.wikimess .cardcontrols .scrollup,
+.wikimess .cardcontrols .scrolldown {
+    font-size: large;
+    position: absolute;
+    background-color: rgba(0,0,0,.5);
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    pointer-events: all;
+    display: flex;
+}
+
+.wikimess .cardcontrols .scrollup span,
+.wikimess .cardcontrols .scrolldown span {
+    display: flex;
+    flex-grow: 1;
+}
+
+.wikimess .cardcontrols .scrollup {
+    top: 4px;
+    right: 4px;
+}
+
+.wikimess .cardcontrols .scrolldown {
+    bottom: 4px;
+    right: 4px;
+}
+
+.wikimess .cardcontrols .button svg,
+.wikimess .cardcontrols .button svg {
+    width: 20px;
+    height: 20px;
+}
+
+.wikimess .cardcontrols .button .iconlabel {
+    display: none;
+}
+
+.wikimess .inertcard,
+.wikimess .helpcard,
+.wikimess .compose .messagebody {
+    text-align: center;
+    flex-grow: 1;
+    overflow-y: auto;
+
+    font-size: 3vh;
+    line-height: 3.75vh;
+
+    margin: 4px;
+}
+
+.wikimess .small .inertcard,
+.wikimess .small .helpcard,
+.wikimess .small .messagebody {
+    font-size: 2vh;
+    line-height: 2.5vh;
+
+    margin: 2px;
+}
+
+.wikimess .tipswipehint,
+.wikimess .choicetext,
+.wikimess .inerttext {
+    font-size: 1.5vh;
+    line-height: 1.5vh;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.wikimess .small .tipswipehint,
+.wikimess .small .choicetext,
+.wikimess .small .inerttext {
+    font-size: 1vh;
+    line-height: 1vh;
+    margin-bottom: 3px;
+}
+
+.wikimess .leftchoicebadge,
+.wikimess .rightchoicebadge {
+    position: absolute;
+    width: 8vh;
+    height: 8vh;
+    top: 3vh;
+}
+.wikimess .leftchoicebadge {
+    left: 1vh;
+}
+.wikimess .rightchoicebadge {
+    right: 1vh;
+}
+
+.wikimess .small .leftchoicebadge,
+.wikimess .small .rightchoicebadge {
+    width: 6vh;
+    height: 6vh;
+    top: 2vh;
+}
+.wikimess .small .leftchoicebadge {
+    left: .7vh;
+}
+.wikimess .small .rightchoicebadge {
+    right: .7vh;
+}
+
+.wikimess .mailstamp {
+    position: absolute;
+    font-size: 1.5vh;
+    line-height: 1.5vh;
+    width: 10vh;
+    right: 1vh;
+    top: 3vh;
+    font-family: "Lucida Console", Monaco, monospace;
+    background: rgba(255,0,0,.1);
+    color: darkred;
+    padding: 2px;
+    border-style: dashed;
+    border-width: 2px;
+    word-wrap: normal;
+}
+
+.wikimess .mailstamp .button {
+    float: right;
+}
+
+.wikimess .mailstamp .button svg {
+    width: 2.5vh;
+    height: 2.5vh;
+}
+
+.wikimess .messageborder .meter,
+.wikimess .messageborder .meter .icon,
+.wikimess .messageborder .meter .icons {
+    min-height: 3.75vh;
+    max-height: 3.75vh;
+}
+
+.wikimess .messageborder .meter .icons {
+    min-width: 3.75vh;
+}
+
+.wikimess .messagebody .avatar {
+    min-height: 10vh;
+}
+
+.wikimess .messageborder.small .meter,
+.wikimess .messageborder.small .meter .icon,
+.wikimess .messageborder.small .meter .icons {
+    min-height: 2.5vh;
+    max-height: 2.5vh;
+}
+
+.wikimess .messageborder.small .meter .icons {
+    min-width: 2.5vh;
+}
+
+.wikimess .small .messagebody .avatar {
+    min-height: 7vh;
+}
+
+.wikimess .messagebody .avatar img,
+.wikimess .messagebody .avatar svg {
+    height: 20vh;
+}
+
+.wikimess .small .messagebody .avatar img,
+.wikimess .small .messagebody .avatar svg {
+    height: 15vh;
+}
+
+.wikimess .avatar img {
+    border-radius: 50%;
+
+    border-style: solid;
+    border-color: white;
+}
+
+.wikimess .messagebody .avatar img {
+    margin: 1vh;
+    border-width: 0.5vh;
+}
+
+.wikimess .avatar a {
+    border-style: none;
+}
+
+.wikimess .avatarname {
+    font-style: italic;
+}
+
+.wikimess .messagebody .avatarname {
+    font-size: 2vh;
+    line-height: 2vh;
+}
+
+.wikimess .small .messagebody .avatarname {
+    font-size: 1.6vh;
+    line-height: 1.6vh;
+}
+
+.wikimess .twithelp {
+    text-align: center;
+    margin: 10px;
+}
+
+.wikimess .compose .suggestions {
+    overflow-wrap: break-word;
+}
+
+.wikimess .mailbox .contents .message {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    min-height: 5vh;
+}
+
+.wikimess .mailbox .contents .message .avatar {
+    height: 4.5vh;
+    width: 4.5vh;
+    margin-right: .5vh;
+}
+
+.wikimess .mailbox .contents .message .title {
+    font-size: 2vh;
+    line-height: 3vh;
+}
+
+.wikimess .mailbox .contents .message.unread .title {
+    font-weight: bold;
+}
+
+.wikimess .mailbox .contents .message .player {
+    font-size: 1vh;
+    line-height: 1.5vh;
+    font-style: italic;
+}
+
+.wikimess .mailbox .contents .message .mailboxheader {
+    flex-grow: 1;
+}
+
+.wikimess .subnavbar {
+    position: relative;
+    font-size: 6vh;
+    display: flex;
+    justify-content: space-between;
+    border-top-style: solid;
+    border-width: 1px;
+    padding-top: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    min-height: 1em;
+    max-height: 1em;
+    margin-bottom: 2px;
+}
+
+.wikimess .messageheader .thread,
+.wikimess.standalone .navtab {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.wikimess .subnavbar.help .button,
+.wikimess .subnavbar.thread .button:not(.threadshow):not(.threadonly),
+.wikimess .subnavbar:not(.thread) .button.threadonly,
+.wikimess .subnavbar .button.disabled {
+    opacity: .2;
+    pointer-events: none;
+}
+
+.wikimess .subnavbar .sharepanecontainer,
+.wikimess .subnavbar .button {
+    position: relative;
+    width: 1em;
+    border-style: solid;
+    border-width: 0px;
+    margin: 1px 0 0 1px;
+    display: flex;
+    flex-direction: column;
+}
+
+.wikimess .subnavbar .button:active {
+    border-width: 1px 0 0 1px;
+    margin: 0px;
+    opacity: .7;
+}
+
+.wikimess img.big-button,
+.wikimess .big-button svg {
+    font-size: 6vh;
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+}
+
+.wikimess .subnavbar .button svg {
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+}
+
+.wikimess img.big-button,
+.wikimess .big-button svg {
+    margin: 1px 0 0 1px;
+    border-width: 0px;
+}
+
+.wikimess .big-button:active {
+    border-width: 1px 0 0 1px;
+    border-style: solid;
+    margin: 0px;
+    opacity: .7;
+}
+
+.wikimess .button .iconlabel {
+    display: none;
+}
+
+.wikimess .subnavbar .button .iconlabel {
+    display: inline;
+    font-size: 1vh;
+    line-height: 1vh;
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.wikimess .subnavbar .inactive {
+    opacity: .6;
+    font-style: italic;
+}
+
+.wikimess .lhslink.limit,
+.wikimess .lhslink.notfound,
+.wikimess .lhslink.unexpanded {
+    opacity: .8;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 2px;
+}
+
+.wikimess .lhslink.notfound,
+.wikimess .lhslink.animating {
+    display: inline-block;
+    transform-origin: center;
+    -webkit-animation: 200ms linear 0s infinite alternate throb_rule;
+    -moz-animation: 200ms linear 0s infinite alternate throb_rule;
+    -o-animation: 200ms linear 0s infinite alternate throb_rule;
+    animation: 200ms linear 0s infinite alternate throb_rule;
+}
+
+.wikimess .lhslink.limitdepth {
+    background-color: palevioletred;
+}
+
+.wikimess .lhslink.limitnodes {
+    background-color: orange;
+}
+
+.wikimess .lhslink.limitsymbols {
+    background-color: red;
+}
+
+.wikimess .lhslink.notfound {
+    background-color: #fdd;
+}
+
+.wikimess .lhslink.unexpanded {
+    background-color: darkgoldenrod;
+}
+
+.wikimess .lhslink.unexpanded.animating {
+    background-color: goldenrod;
+}
+
+@-webkit-keyframes throb_rule { 0% { transform:scale(1) rotate(-1deg); } 50% { transform:scale(1.02) rotate(0deg); } 100% { transform:scale(1) rotate(1deg); } }
+   @-moz-keyframes throb_rule { 0% { transform:scale(1) rotate(-1deg); } 50% { transform:scale(1.02) rotate(0deg); } 100% { transform:scale(1) rotate(1deg); } }
+     @-o-keyframes throb_rule { 0% { transform:scale(1) rotate(-1deg); } 50% { transform:scale(1.02) rotate(0deg); } 100% { transform:scale(1) rotate(1deg); } }
+        @keyframes throb_rule { 0% { transform:scale(1) rotate(-1deg); } 50% { transform:scale(1.02) rotate(0deg); } 100% { transform:scale(1) rotate(1deg); } }
+
+
+.wikimess .compose .messageheader .privtab {
+    width: 50%;
+    cursor: pointer;
+}
+
+.wikimess .compose .messageheader textarea {
+    width: 100%;
+    height: 2em;
+}
+
+.wikimess .compose .messageheader textarea.recipient {
+    resize: none;
+}
+
+.wikimess .compose .messageheader textarea.title {
+    resize: vertical;
+    min-height: 1em;
+    max-height: 3em;
+}
+
+.wikimess .compose .messageheader textarea.prevtags,
+.wikimess .compose .messageheader textarea.tags {
+    resize: none;
+}
+
+.wikimess .compose .messageheader .messagecompose textarea,
+.wikimess .grammarbar textarea {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.wikimess .messagecompose textarea {
+    flex-grow: 1;
+    resize: none;
+}
+
+.wikimess .grammarbar .lhs textarea {
+    resize: vertical;
+    max-height: 3em;
+    flex-grow: 1;
+}
+
+.wikimess .grammarbar .rhs textarea {
+    resize: vertical;
+    min-height: 10vh;
+    max-height: 50vh;
+    flex-grow: 1;
+}
+
+.wikimess .popular {
+    margin-top: 4px;
+    padding-bottom: 12px;
+}
+
+.wikimess .templates .template {
+    cursor: pointer;
+}
+
+.wikimess .templates .template .title {
+    font-weight: bold;
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+
+.wikimess .templates .template .by {
+    font-style: italic;
+    font-size: 1vh;
+}
+
+.wikimess .configmenu {
+    margin: 16px;
+    font-size: small;
+}
+
+.wikimess .configmenu .option {
+    text-align: center;
+    padding: 4px;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+}
+
+.wikimess .configmenu .option:nth-child(1) {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.wikimess .configmenu .option:nth-last-child(1) {
+    border-bottom-style: solid;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.wikimess .banner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.wikimess .banner .meter .label {
+    display: none;
+}
+
+.wikimess .messageborder .meter .label {
+    font-size: smaller;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.wikimess .meter-size-reference {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.wikimess .banner .meter {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    pointer-events: all;
+}
+
+.wikimess .messageborder .meters {
+    position: relative;
+    margin-left: 2vh;
+    margin-right: 2vh;
+    margin-top: 2vh;
+    flex-grow: 1;
+}
+
+.wikimess .messageborder .meter {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    overflow: hidden;
+}
+
+.wikimess .messageborder .meter .icons {
+    position: relative;
+}
+
+.wikimess .meter .icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
+
+.wikimess .meter .icon svg {
+    height: 100%;
+}
+
+.wikimess .messageborder .tiptext {
+    margin: 2vh;
+}
+
+.wikimess .messageborder.small .tiptext {
+    margin: 1.5vh;
+}
+
+.wikimess .messageborder .tiptext,
+.wikimess .messageborder .statustext {
+    flex-grow: 1;
+}

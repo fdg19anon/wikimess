@@ -1,0 +1,11 @@
+<body>
+  <div id="wikimess"></div>
+</body>
+
+<script type="text/javascript">
+  var wm
+  $(function() {
+    wm = new WikiMess(<%- (init ? JSON.stringify(initConfig) : '') -%>)
+  
+  })
+</script>

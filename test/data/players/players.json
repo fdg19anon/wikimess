@@ -1,0 +1,12 @@
+[
+    {
+        name: "fred",
+        password: "test",
+        newSignUp: false
+    },
+    {
+        name: "sheila",
+        password: "test",
+        newSignUp: false
+    }
+]

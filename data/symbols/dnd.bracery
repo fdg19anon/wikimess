@@ -1,0 +1,306 @@
+>dnd_bad_situation
+~dnd_uh_oh~dnd_at_this_point, ~dnd_you_encounter ~dnd_a_horde_of $dnd_enemy={~dnd_monster}&plural{$dnd_enemy}!
+
+>dnd_uh_oh
+[Uh oh[!|...]|[O|o][|o|oo]kay.|[Right. |][so|So|SO|Soo][,|:|...]|OK[.|:]|Ahem.|[Heads|Listen] up[.|:|!]|||] 
+
+>dnd_at_this_point
+As you [enter|approach|go deeper into|delve into|explore|dig into|[plumb|fathom] the [depths|deep|deeps] of] ~dnd_place
+[In|At] ~dnd_place
+[Later|Suddenly|Eventually|After some time|The next day|That afternoon], [in|at] ~dnd_place
+
+>dnd_place
+the ~dnd_place_adjective &cap~dnd_region
+~dnd_villain's [[Lair|Castle||Keep|Folly|Palazzo]|~Dnd_region]
+
+>dnd_region
+$dnd_region:=[cavern|dungeon|fjord|river|forest|chasm|passage|lake]
+
+>dnd_villain
+[Mag|Quar|Ab|Plu|Ben|Dul|So][dak|lok|bud|mel|vox|bex|kel|buht|tak]
+
+>dnd_place_adjective
+Skanky
+Foul
+Rotten
+Lethal
+Burrowed
+Fallen
+Lost
+Forgotten
+Hopeless
+Dismal
+Awful
+Pitied
+Pitiful
+Sorrowful
+Lossless
+Troubled
+Regretful
+Remorseful
+Sad
+
+>dnd_you_encounter
+you run into
+you're [surprised|attacked] by
+you [see|observe|find]
+you get [jumped|attacked] by
+
+>dnd_a_horde_of
+&a{[[organized|ambitious|impressive|scary|foul|undisciplined|rowdy|stinking|smelly|malodorous|cunning] |][group|team|corps|division|bunch|gang|horde|mob|throng|band]} of
+several
+[three|four|five][| dozen| or so]
+
+>dnd_monster
+kobold
+goblin
+orc
+drow elf
+[fire|ice|stone] giant
+creeper
+~common_animal-creature
+~common_animal-demon
+zombie
+
+>dnd_attack
+I attack ~dnd_the_enemy with my $dnd_weapon={~dnd_melee_weapon}$dnd_weapon.
+
+>dnd_the_enemy
+$dnd_the_enemy:=&if{$dnd_the_enemy}{$dnd_the_enemy}{the &plural$dnd_enemy}
+
+>dnd_melee_weapon
+axe
+sword
+club
+mace
+lance
+spear
+dagger
+knife
+broadsword
+ax
+rapier
+battle-axe
+katana
+machete
+small-sword
+pick-axe
+ice-axe
+tomahawk
+hatchet
+scimitar
+war-club
+pike
+trident
+war-hammer
+blade
+
+>dnd_attack_fails
+~{dnd_add_broken_weapon_tag}Your $dnd_weapon[|, [uh|like],| *cough*] [shatters|splinters|breaks|explodes] into[| [countless|innumerable|a [thousand|hundred|dozen]]][| [tiny|useless|tumbling]] [pieces|shards|fragments][| of [metal|shrapnel|junk]].
+
+>dnd_add_broken_weapon_tag
+$tags={$tags dnd_broken_weapon}
+
+>dnd_remove_broken_weapon_tag
+$tags=&replace/dnd_broken_weapon /$prevtags{}
+
+>dnd_lament_failed_attack
+~{dnd_remove_broken_weapon_tag}[GOD|GODS] [DAMMIT|[DAMN|BLIND|CURSE] [YOU|YOUR EYES]] I [LOVED|NEEDED] THAT $DND_WEAPON
+
+>dnd_cast_spell
+I cast ~dnd_a_spell at ~dnd_the_enemy.
+
+>dnd_spell_fails
+Your $dnd_spell [fails|fizzles|flops|is &a{catastrophe|embarrassment|failure}].
+That spell is too [high level|advanced|difficult|dextrous] for you, [I'm [afraid|sorry to say]|fool|unfortunately|n00b|butterfingers|I [fear|very much fear|regret to say]|young [mage|trainee|padawan|acolyte|beginner|adventurer]].
+
+>dnd_a_spell
+$dnd_spell={~dnd_spell}$dnd_villain={~dnd_villain}$dnd_a_spell:=[&a{$dnd_spell}|$dnd_villain's $dnd_spell|the ~dnd_dread $dnd_spell]
+
+>dnd_dread
+dread
+loath
+unmentionable
+evil
+forbidden
+taboo
+repulsive
+grotesque
+disgusting
+putrid
+crawling
+
+>dnd_spell_type
+spell
+charm
+ward
+omen
+gloom
+pall
+incantation
+curse
+
+>dnd_spell
+[fire|ice|dust]ball
+~dnd_spell_type of [fire|ice|dark|pain|obliteration]
+[[silent|quiet|whispered|phantom|illusory|ghostly] |]~Body_part of [~greek_monster|~greek_titan]
+
+>dnd_game_sucks
+~dnd_fortune500_slam
+This ~dnd_campaign [sucks|drools|bites]!
+This[| ~dnd_campaign] is [unfair|ridiculous|idiotic|contrived].
+This ~dnd_campaign is [rigged|the worst|the literal worst].
+This[| [whole|entire|#dnd_region#]] [thing|~dnd_campaign] is[| so,][| just,][| so,][| like,][| so][| totally] [boring|not cool|uncool|wrong|weak].
+
+>dnd_campaign
+[game|campaign|battle|encounter]
+
+>dnd_literally
+literally
+seriously
+in [genuine|all] [seriousness|honesty|integrity|truth]
+
+>dnd_i_cannot_even
+~dnd_fortune500_slam
+I[| ~dnd_literally|, ~dnd_literally,] [can't|cannot|[do not have|lack|am [deficient in|bereft of]] the [power|ability|will] to][| ~dnd_literally| even] even.
+Not even my[| [literal|own|can's]] can [can|could|has the ability to][| even] even.
+I [have [abandoned|lost]|[am|have been] [drained|bereft|depleted] of] the [ability|power|will] to [can|care|continue|live|believe|play].
+
+>dnd_fortune500_slam
+Does your $dnd_the_enemy:={~fortune500_company} [group|game|campaign] [suck|bite] this [bad|hard]?
+
+>dnd_help_attack
+I aid your attack with magic.
+
+>dnd_help_spell
+I guard your spell-weaving with my blade.
+
+>dnd_no_attacks
+You can't use &a$dnd_weapon!
+Only $dnd_attacker can use &plural$dnd_weapon.
+
+>dnd_no_spells
+You can't cast $dnd_spell!
+Only $dnd_spellcaster can cast $dnd_a_spell.
+
+>dnd_treasure
+~dnd_you_found ~dnd_some_treasure!
+~dnd_you_found ~dnd_some_treasure! [~dnd_treasure_is_valuable|~dnd_treasure_is_useful]
+
+>dnd_you_found
+[||||[O|Oh][,|] ][Good|Wonderful|Fortuitous|Happy] [news|tidings|luck|Fate]! You ~dnd_found
+Your [[explorations|adventures|efforts|risks] have|[gambling|courage|adventuresome spirit] has] borne fruit[, for|:] you have ~dnd_found
+
+>dnd_found
+found
+discovered
+revealed
+uncovered
+[lucked|chanced|stumbled] [on|upon]
+
+>dnd_some_treasure
+$dnd_treasure_item={~dnd_treasure_item}$dnd_some_treasure:=[&a{[|~common_adjective, ]$dnd_treasure_item}|some &plural{[|~common_adjective, ]$dnd_treasure_item}]
+
+>dnd_treasure_item
+[enchanted|blessed|sentient|talking|conscious|alien|elvish|dwarven-forged][|, [diamond|mithril|steel|carbon-fiber|titanium|plutonium]] ~dnd_melee_weapon
+[rare|potent|puissant|sentient|conscious|talking|elvish|ancient] ~dnd_magic_item of ~dnd_magic_genre
+[rare|valuable|secret|stolen|priceless|legendary|mythical] ~gemstone
+
+>dnd_magic_item
+orb
+runestone
+codex
+tome
+wand
+staff
+sceptre
+purse
+handbag
+slipper
+
+>dnd_magic_genre
+necromancy
+illusion
+legerdemain
+conjuring
+summoning
+divination
+transformation
+divination
+
+>dnd_treasure_is_valuable
+[This [treasure|loot|haul]|&cap&plural$dnd_treasure_item] [may|can] be sold [at|for] [great|enormous|huge|immense] [value|profit].
+Your eyes gleam as you [imagine|dream of] the [wealth|profit|rewards]!
+Nice.
+Pretty sweet.
+Not bad!
+Sweet!
+Tasty!
+Ker-ching!
+You got [lucky|money|paid]!
+You hit [payday|paydirt|the big time]!
+
+>dnd_treasure_is_useful
+This [will surely|may|could|will likely|might possibly] [aid|help|further|be related to] your quest.
+This could be what ~dnd_villain was [[referring|alluding] to|[hinting|getting] at]!
+You have &a{feeling|hunch|gut feeling|intuition} this will be [relevant|helpful|crucial] to your [quest|questing|goal|ultimate goal].
+Your eyes gleam as you [imagine|dream of] the [power|possibilities|dominion|mastery]!
+
+>dnd_take_treasure
+[Awesome|Fantastic|Cool|Amazing][!|!!|!!!]
+[Calling|Definitely [gotta have|calling|having|taking|claiming]|I [take|claim|call]] &a$dnd_treasure_item.
+All &plural$dnd_treasure_item are mine.
+My [|sacred ][quest is|trials are] [complete|over|about to begin|just begun]. I take [&a$dnd_treasure_item|the &plural$dnd_treasure_item] and [assume|claim|seek] my role as [[Lord|Autarch|Supreme Ruler|Mayor|Deathlord] of the [Underworld|&cap~dnd_region|land|[Cursed|Hidden|Nether] Realms]|[Guild|Clan|Party] [Acolyte|Secretary|President|Treasurer]]!
+Let's [grab|take|claim|bag|pick up] the &plural$dnd_treasure_item[| and [run|scarper|get out of here|make a sharp exit|exit, fast|exit|quit|quit while we're ahead]]!
+[It is not my [place|role|duty|quest] to [take|claim]|I leave to [others|another|my fellow [adventurer|party member][|s]] the [honor|privilege|duty|task|rite] of [taking|claiming]] &plural$dnd_treasure_item, but I am glad that we [have|finally] found them[|, as was [foretold|prophesied|augured|expected|totally predictable|inevitable]].
+
+>dnd_treasure_guarded
+~dnd_unfortunately_guarded[|| ~dnd_gloat]
+
+>dnd_unfortunately_guarded
+[Unfortunately,|However,|To your [peril|chagrin|humiliation|eternal regret],|The bad news is,|Bad news:] the $dnd_treasure_item is guarded by [~dnd_a_horde_of |]$dnd_enemy={~dnd_monster}&plural{$dnd_enemy}!
+And that's [when|where|how] you [run into|encounter|get ambushed by|are surprised by|meet|find yourself [facing|[talking|introducing yourself] to]] [the|~dnd_a_horde_of] $dnd_enemy={~dnd_monster}&plural{$dnd_enemy}!
+
+>dnd_gloat
+Did you imagine it would be easy?
+([||Naive |Callow ][Fools|Newbies|N00bs|Beginners]! It is never [that easy|as it seems|as easy as it [looks|seems]]!)
+I [am so [sorry for|moved by]|pity|feel [|such ][|deep |heartbreaking |bottomless ] [pity|empathy|sorrow|sadness] for] your imminent $dnd_fate=[doom|death][$dnd_fate|&cap$dnd_fate|&uc$dnd_fate][...|!|!!|!!!]
+
+>dnd_spell_backfires
+Your spell backfires.
+
+>dnd_dodge_argument
+When this ~dnd_sort_of_argument [starts up|kicks in][| again], I [sometimes|often|occasionally] [wonder if|speculate that] [players|we] [ought to|could|might] [redirect|turn|bend] our [energy|emotions|emotional [investment|passion|intensity]] to the [game|campaign] [world|universe|mythos].
+[Please|Oh gods|Great Zeus], let's not get ~dnd_distracted_by [this|all this|this ~dnd_sort_of_argument] again.
+[|[Please|People|Guys], |[Seriously|Really|Honestly]? ]I've[| [really|already]] [asked you not to|talked about [what happens|the effect on [the [campaign|game|group]|[realism|morale|immersion|authenticity]]|what it feels like|what signal you're sending] when we] [go there|get ~dnd_distracted_by [that|all that][| [stuff|~dnd_sort_of_argument]]].
+
+>dnd_sort_of_argument
+[sort|kind] of [thing|argument|~dnd_negativity]
+[|[particular|whole|old] ][flavor|miasma|vortex|morass] of ~dnd_negativity
+
+>dnd_negativity
+[nay-saying|negativity|bickering|cynicism|apathy]
+
+>dnd_distracted_by
+[into|bogged down in|distracted by]
+
+>dnd_prolong_argument
+[No way|Too bad|Whatever|Deal with it|Suffer|Sit on it|I don't care|Your problem|That's your problem]. ~dnd_game_sucks
+
+>dnd_query_meaning
+What does this even mean?
+
+>dnd_magical_explanation
+A rift in space and time, too deep to contemplate.
+
+>dnd_query_cause
+How did this even happen?
+
+>dnd_introduce_antagonist
+$dnd_nemesis={~dnd_villain}$dnd_the_enemy={$dnd_nemesis}Your dreaded antagonist, $dnd_nemesis.
+
+>dnd_declare_war
+We must defeat $dnd_nemesis!
+
+>dnd_antagonist_missing
+$dnd_the_enemy={}You[| do] realize $dnd_nemesis isn't [actually|really] [here|in the same [location|place] as your [character|party]]?

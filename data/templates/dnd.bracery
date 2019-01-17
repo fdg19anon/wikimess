@@ -1,0 +1,106 @@
+@dm>Treasure ##dnd_treasure
+~dnd_treasure
+
+@player1>Claim Treasure #dnd_treasure #dnd_take_treasure
+~dnd_take_treasure
+
+@player2>Claim Treasure #dnd_treasure #dnd_take_treasure
+~dnd_take_treasure
+
+@dm>Guards #dnd_take_treasure #dnd_bad_situation dnd_fail
+~dnd_treasure_guarded
+
+@dm>Surprise Encounter ##dnd_bad_situation
+~dnd_bad_situation
+
+@player1>Attack #dnd_bad_situation #dnd_attack
+~dnd_attack
+
+@player2>>Assist #dnd_attack !dnd_assist #dnd_attack dnd_assist
+~dnd_help_attack
+
+@dm>Attack Fail #dnd_attack #dnd_bad_situation dnd_fail
+~dnd_attack_fails
+
+@player1>Attack Fail #dnd_broken_weapon #
+~dnd_lament_failed_attack
+
+@player2>Cast Spell #dnd_bad_situation #dnd_spell
+~dnd_cast_spell
+
+@player1>>Guard #dnd_spell !dnd_assist #dnd_spell dnd_assist
+~dnd_help_spell
+
+@dm>Spell Fail #dnd_spell #dnd_bad_situation dnd_fail
+~dnd_spell_fails
+
+@player2>Attack #dnd_bad_situation #dnd_inappropriate_attack
+~dnd_attack
+
+@player1>No Attacks #dnd_inappropriate_attack #dnd_bad_situation dnd_fail
+$dnd_attacker={I}~dnd_no_attacks
+
+@dm>No Attacks #dnd_inappropriate_attack #dnd_bad_situation dnd_fail
+$dnd_attacker={a warrior}~dnd_no_attacks
+
+@player1>Cast Spell #dnd_bad_situation #dnd_inappropriate_spell
+~dnd_cast_spell
+
+@player1>Cast Spell #dnd_dodge_argument #dnd_inappropriate_spell
+~dnd_cast_spell
+
+@dm>>Spell Backfires #dnd_dodge_argument #dnd_magic_accident
+~dnd_spell_backfires
+
+@player2>No Spells #dnd_inappropriate_spell #dnd_bad_situation dnd_fail
+&let$dnd_spellcaster={I}~dnd_no_spells
+
+@dm>>Spell Backfires #dnd_spell #dnd_bad_situation dnd_fail dnd_magic_accident
+~dnd_spell_backfires
+
+@dm>No Spells #dnd_inappropriate_spell #dnd_bad_situation dnd_fail
+&let$dnd_spellcaster={a mage}~dnd_no_spells
+
+@player1>Game Over #dnd_fail #dnd_argument
+~dnd_game_sucks
+
+@player2>Game Over #dnd_fail #dnd_argument
+~dnd_i_cannot_even
+
+
+@dm>Game Continue #dnd_argument !dnd_dodge_argument #dnd_argument dnd_dodge_argument
+~dnd_dodge_argument
+
+@player1,player2>Game Over #dnd_dodge_argument #dnd_argument
+~dnd_prolong_argument
+
+
+@player1,player2>Meaning? #dnd_magic_accident#dnd_magic_accident_meaning
+~dnd_query_meaning
+
+@dm>Rift#dnd_magic_accident_meaning#dnd_magic_accident
+~dnd_magical_explanation
+
+@player1,player2>Cause? #dnd_magic_accident#dnd_magic_accident_cause
+~dnd_query_cause
+
+@dm>Antagonist#dnd_magic_accident_cause#dnd_antagonist
+~dnd_introduce_antagonist
+
+@player1,player2>Victory! #dnd_antagonist #dnd_antagonist_victory
+~dnd_declare_war
+
+@player1>Attack #dnd_antagonist_victory #dnd_attack dnd_antagonist_absent
+~dnd_attack
+
+@player2>Cast Spell #dnd_antagonist_victory #dnd_spell dnd_antagonist_absent
+~dnd_cast_spell
+
+@dm>Four Oh Four #dnd_antagonist_absent #dnd_antagonist_victory dnd_fail
+~dnd_antagonist_missing
+
+@player2>Attack #dnd_antagonist_victory #dnd_inappropriate_attack
+~dnd_attack
+
+@player1>Cast Spell #dnd_antagonist_victory #dnd_inappropriate_spell
+~dnd_cast_spell
