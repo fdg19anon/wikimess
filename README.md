@@ -1,4 +1,3 @@
-
 # Wiki Messenger
 
 Wiki Messenger is a messenger app (and server) where the messages can be generated procedurally.
